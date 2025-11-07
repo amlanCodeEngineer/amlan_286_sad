@@ -15,21 +15,40 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 81, 136, 163),
-          leading: IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+          foregroundColor: Colors.tealAccent,
+          // leading: IconButton(onPressed: () {}, icon: Icon(Icons.home)),
           title: Text("Flutter App"),
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
             IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
           ],
         ),
-        body: Text(
-          "Hello Flutter",
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Colors.amber,
-          ),
+        drawer: NavigationDrawer(
+          // backgroundColor: Colors.blueAccent,
+          children: [
+            DrawerHeader(
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.blueGrey),
+                accountName: Text("Name"),
+                accountEmail: Text("Email"),
+              ),
+            ),
+            ListTile(
+              onTap: () {},
+              title: Text("Home Page"),
+              leading: Icon(Icons.home),
+            ),
+            Divider(),
+            ListTile(onTap: () {}, title: Text("Contact Page")),
+            ListTile(onTap: () {}, title: Text("Profile")),
+          ],
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          tooltip: "Add",
+          child: Icon(Icons.add),
+        ),
+        body: Image.asset('assets/images/flutter.png'),
       ),
     );
   }
